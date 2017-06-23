@@ -417,9 +417,9 @@ _Use_decl_annotations_ static void VmmpHandleCpuid(
     cpu_info[2] = static_cast<int>(cpu_features.all);
   } else if (function_id == kHyperVCpuidInterface) {
     // Fake vendor ID
-    cpu_info[1] = 'KVM';
-    cpu_info[2] = 'KVM';
-    cpu_info[3] = 'KVM';
+    cpu_info[1] = 'KMVK';
+    cpu_info[2] = 'VKMV';
+    cpu_info[3] = 'M';
   }
 
   guest_context->gp_regs->ax = cpu_info[0];
