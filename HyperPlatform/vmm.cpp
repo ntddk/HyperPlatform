@@ -416,8 +416,10 @@ _Use_decl_annotations_ static void VmmpHandleCpuid(
     cpu_features.fields.not_used = true;
     cpu_info[2] = static_cast<int>(cpu_features.all);
   } else if (function_id == kHyperVCpuidInterface) {
-    // Leave signature of HyperPlatform onto EAX
-    cpu_info[0] = 'PpyH';
+    // Fake vendor ID
+    cpu_info[1] = 'KVM';
+    cpu_info[2] = 'KVM';
+    cpu_info[3] = 'KVM';
   }
 
   guest_context->gp_regs->ax = cpu_info[0];
